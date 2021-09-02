@@ -1,0 +1,17 @@
+﻿@model IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<input id="input1" data-bind="value: input1, valueUpdate: 'keypress'" />
+<span data-bind="text: input1"></span>
+<button id="popover" type="button" data-bind="click: onClick" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+
+
+
+<script>
+    data = @Html.Raw(JsonConvert.SerializeObject(Model))
+</script>

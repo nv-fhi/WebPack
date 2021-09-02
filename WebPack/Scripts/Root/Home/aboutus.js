@@ -1,0 +1,2 @@
+﻿import { Popover } from 'bootstrap';
+
