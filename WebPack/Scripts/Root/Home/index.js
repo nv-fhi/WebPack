@@ -1,6 +1,6 @@
 ﻿import ko from 'knockout';
 import ViewModelBase from '../Shared/ViewModelBase';
-
+/*changes test*/
 class ViewModel extends ViewModelBase {
     constructor() {
         super();

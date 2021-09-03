@@ -99,8 +99,8 @@
     <Content Include="Scripts\Root\Shared\ViewModelBase.js" />
     <Content Include="Web.config" />
     <Content Include="webpack.config.js" />
-    <Content Include="webpack.dev.js" />
-    <Content Include="webpack.prod.js" />
+    <Content Include="_webpack.dev.js" />
+    <Content Include="_webpack.prod.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -108,7 +108,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HtmlHelperExtensions.cs" />
     <Compile Include="Models\IndexViewModel.cs" />
+    <Compile Include="Models\WebpackBundles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,9 +120,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
-    <Content Include="Views\Shared\_Bundles.Template.cshtml" />
-    <Content Include="Views\Shared\_Bundles.cshtml" />
-    <Content Include="Views\Shared\_ViewStart.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

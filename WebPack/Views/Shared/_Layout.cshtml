@@ -1,5 +1,15 @@
+<!DOCTYPE html>
 
-  
-<script defer src="../../assets/js/root/vendor.js"></script>
-<script defer src="../../assets/js/root/home/index.js"></script>
-<script defer src="../../assets/js/root/home/aboutus.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @Html.RenderBundles()
+</body>
+</html>
+

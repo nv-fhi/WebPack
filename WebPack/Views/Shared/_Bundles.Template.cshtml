@@ -1,9 +1,0 @@
-﻿@{
-    var jsAssets = new Dictionary<string, string>()
-    {
-          <% for (var js in htmlWebpackPlugin.files.js) { %>
-            <%= '{ "' + htmlWebpackPlugin.files.js[js] + '", "' + htmlWebpackPlugin.files.js[js] + '" },' %>
-          <% } %>
-    };
-}
-

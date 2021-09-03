@@ -2,12 +2,10 @@
 // Webpack Production settings
 /*const prod = process.argv.indexOf('-p') !== -1;*/
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 const path = require('path'),
     webpack = require('webpack'),
-    /*CleanWebpackPlugin = require('clean-webpack-plugin'),*/
-    Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin');
+/*Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin');*/
 
 const pages = [
 
@@ -26,9 +24,9 @@ module.exports = {
     }, {}),
 
     output: {
-      
+
         filename: 'root/[name].[chunkhash].js',
-      /*  filename: (prod) ? "root/[name].[chunkhash].js" : "root/[name].js",*/
+        /*  filename: (prod) ? "root/[name].[chunkhash].js" : "root/[name].js",*/
         path: path.resolve(__dirname, "assets/js"),
         //publicPath
     },
@@ -38,7 +36,7 @@ module.exports = {
     // IMPORTANT NOTE: If you are using Webpack 2 or above, replace "loaders" with "rules"
     // webpack v5 > v2 
     module: {
-        
+
         rules: [
             {
                 loader: 'babel-loader',
@@ -66,86 +64,16 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
-        new Chunks2JsonPlugin({
-            filename:"bundles.json",
-            outputDir: '.',
-           
-        }),
-        new CleanWebpackPlugin()
+        //new Chunks2JsonPlugin({
+        //    outputDir: 'dist/',
+        //    publicPath
+        //}),
+        new HtmlWebpackPlugin({
+            inject: false,
+            template: "./Views/Shared/_Bundles.Template.cshtml",
+            filename: "./Views/Shared/_Bundles.cshtml",
+
+        })
     ],
     stats: { colors: true }
 }
-
-
-
-
-
-
-
-
-
-//const path = require("path");
-
-//var HtmlWebpackPlugin = require("html-webpack-plugin");
-
-////autotrack all the pages in directory 
-//const pages = [
-//    "home/index",
-//    "home/aboutus",
-//];
-//module.exports = {
-//    mode: "development",
-//    /*  entry: "./src/index.js",*/
-
-//    entry: pages.reduce((config, page) => {
-//        config[page] = `./Scripts/root/${page}.js`
-//        return config;
-//    }, {}),
-//    output: {
-//        // check again
-//        filename: `root/[name].[contentHash].js`,
-//        path: path.resolve(__dirname, "assets/js")
-//    },
-//    plugins: [
-//        new HtmlWebpackPlugin({
-//            template: "./Views/Shared/_Bundles.cshtml"
-//        })
-//    ],
-//    // css- javascript- loaders etc..
-//    module: {
-//        rules: [
-//            {
-//                loader: 'babel-loader',
-//                test: /\.js$/,
-//                exclude: /node_modules/
-//            }
-//        ]
-
-//    }
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

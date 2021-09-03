@@ -2,89 +2,15 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./Scripts/root/Shared/ViewModelBase.js":
-/*!**********************************************!*\
-  !*** ./Scripts/root/Shared/ViewModelBase.js ***!
-  \**********************************************/
+/***/ "./Scripts/root/home/aboutus.js":
+/*!**************************************!*\
+  !*** ./Scripts/root/home/aboutus.js ***!
+  \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-class ViewModelBase {
-  async init() {
-    await this.onPreInit();
-    await this.onInit();
-    await this.onPostInit();
-  }
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 
-  async onPreInit() {
-    return Promise.resolve();
-  }
-
-  async onInit() {
-    let data = await this.loadData();
-    await bindData(data);
-    return Promise.all(bindData());
-  }
-
-  async onPostInit() {
-    return Promise.resolve();
-  }
-
-  loadData() {
-    return Promise.resolve(data);
-  }
-
-  bindData(data) {
-    ko.applyBindings(data, this);
-  }
-
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ViewModelBase);
-
-/***/ }),
-
-/***/ "./Scripts/root/home/index.js":
-/*!************************************!*\
-  !*** ./Scripts/root/home/index.js ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var knockout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! knockout */ "./node_modules/knockout/build/output/knockout-latest.js");
-/* harmony import */ var knockout__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(knockout__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Shared_ViewModelBase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Shared/ViewModelBase */ "./Scripts/root/Shared/ViewModelBase.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-class ViewModel extends _Shared_ViewModelBase__WEBPACK_IMPORTED_MODULE_1__.default {
-  constructor() {
-    super();
-
-    _defineProperty(this, "onClick", function () {
-      this.input1("test");
-    });
-
-    this.input1 = knockout__WEBPACK_IMPORTED_MODULE_0___default().observable("");
-  }
-
-  async onInit() {
-    super.onInit();
-    knockout__WEBPACK_IMPORTED_MODULE_0___default().applyBindings(this);
-  }
-
-}
-
-window.ViewModel = new ViewModel();
-
-if (onModelBound) {
-  onModelBound();
-}
 
 /***/ })
 
@@ -150,18 +76,6 @@ if (onModelBound) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -198,7 +112,7 @@ if (onModelBound) {
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"home/index": 0
+/******/ 			"home/aboutus": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -248,9 +162,9 @@ if (onModelBound) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendor"], () => (__webpack_require__("./Scripts/root/home/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendor"], () => (__webpack_require__("./Scripts/root/home/aboutus.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=aboutus.05a2052eb62efbbabdc8.js.map
