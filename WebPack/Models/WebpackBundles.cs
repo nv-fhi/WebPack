@@ -21,7 +21,7 @@ namespace WebPack.Models
             {
                 dynamic chunks = JObject.Load(reader);
                 foreach (var chunk in chunks)
-                {
+                {   
                     var files = new List<string>();
 
                     foreach (var file in chunk.Value.js)

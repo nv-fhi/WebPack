@@ -6,12 +6,31 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const path = require('path'),
     webpack = require('webpack'),
-    /*CleanWebpackPlugin = require('clean-webpack-plugin'),*/
-    Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin');
+    fs = require('fs'),
+    Chunks2JsonPlugin = require('chunks-2-json-webpack-plugin'),
+    BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+
+//const pages = (function () {
+//    const entryPoints = [];
+//    const basePath = "Scripts/root",
+//        contentFolder = path.resolve(basePath),
+//        dataFolders = fs.readdirSync(contentFolder),
+//        folderPaths = dataFolders.map(folder => `${basePath}/${folder}`);
+
+//    for (let i = 0; i < folderPaths.length; i++) {
+//        const data = fs.readdirSync(folderPaths[i]);
+//        for (let j = 0; j < data.length; j++) {
+//            data[j].endsWith('.js') ? entryPoints.push(`.${folderPaths[i]}/${data[j]}`) : folderPaths.push(`${folderPaths[i]}/${data[j]}`);
+//        }
+//    }
+//    return entryPoints;
+
+//})();
 
 const pages = [
-
-    //autotrack all the pages in directory 
+    // need func to scan on start for all possible entry points
+    // autotrack all the pages in directory 
     "home/index",
     "home/aboutus",
 ];
@@ -21,22 +40,20 @@ module.exports = {
 
     entry: pages.reduce((config, page) => {
         config[page] = `./Scripts/root/${page}.js`
-
+        // ./Scripts/root/
+       /* config[page] = `${page}`;*/
+        console.log(config);
         return config;
     }, {}),
+    
 
     output: {
       
         filename: 'root/[name].[chunkhash].js',
-      /*  filename: (prod) ? "root/[name].[chunkhash].js" : "root/[name].js",*/
         path: path.resolve(__dirname, "assets/js"),
-        //publicPath
+        
     },
-    //plugins: [
-    //    new Chunks2JsonPlugin({ outputDir: 'dist/', publicPath })
-    //]
-    // IMPORTANT NOTE: If you are using Webpack 2 or above, replace "loaders" with "rules"
-    // webpack v5 > v2 
+
     module: {
         
         rules: [
@@ -50,11 +67,13 @@ module.exports = {
     optimization: {
         splitChunks: {
             cacheGroups: {
-                commons: {
-                    name: 'commons',
-                    chunks: 'initial',
-                    minChunks: 2,
-                },
+                // how to get dynamic parts out off node_modules without having a reference to the specific side
+                //commons: {
+                //    // what are commons? all js from 
+                //    name: 'commons',
+                //    chunks: 'initial',
+                //    minChunks: 2,
+                //},
                 vendor: {
                     test: /node_modules/,
                     chunks: 'initial',
@@ -71,81 +90,9 @@ module.exports = {
             outputDir: '.',
            
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new BundleAnalyzerPlugin()
     ],
     stats: { colors: true }
 }
-
-
-
-
-
-
-
-
-
-//const path = require("path");
-
-//var HtmlWebpackPlugin = require("html-webpack-plugin");
-
-////autotrack all the pages in directory 
-//const pages = [
-//    "home/index",
-//    "home/aboutus",
-//];
-//module.exports = {
-//    mode: "development",
-//    /*  entry: "./src/index.js",*/
-
-//    entry: pages.reduce((config, page) => {
-//        config[page] = `./Scripts/root/${page}.js`
-//        return config;
-//    }, {}),
-//    output: {
-//        // check again
-//        filename: `root/[name].[contentHash].js`,
-//        path: path.resolve(__dirname, "assets/js")
-//    },
-//    plugins: [
-//        new HtmlWebpackPlugin({
-//            template: "./Views/Shared/_Bundles.cshtml"
-//        })
-//    ],
-//    // css- javascript- loaders etc..
-//    module: {
-//        rules: [
-//            {
-//                loader: 'babel-loader',
-//                test: /\.js$/,
-//                exclude: /node_modules/
-//            }
-//        ]
-
-//    }
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

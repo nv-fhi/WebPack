@@ -61,7 +61,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-/*chan*/
+/*changes test*/
 
 class ViewModel extends _Shared_ViewModelBase__WEBPACK_IMPORTED_MODULE_1__.default {
   constructor() {
@@ -254,4 +254,4 @@ if (onModelBound) {
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=index.2bb5d5f76358f125f4ab.js.map
+//# sourceMappingURL=index.6eedc7d5a4f74fd3c396.js.map
